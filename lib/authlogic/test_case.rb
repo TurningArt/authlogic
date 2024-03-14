@@ -203,9 +203,12 @@ module Authlogic
     # The Authlogic::TestCase::MockController object passed to Authlogic to
     # activate it. You can access this in your test. See the module description
     # for an example.
-    def controller
-      @controller ||= Authlogic::TestCase::MockController.new
-    end
+   
+    # Commented out this because it completely fucks up tests on apps that include ActiveAdmin 
+    # because it somehow redefines the *real* controller instance that gem expects
+    # def controller
+    #   @controller ||= Authlogic::TestCase::MockController.new
+    # end
   end
 
   # TODO: Why are these lines inside the `Authlogic` module? Should be outside?
